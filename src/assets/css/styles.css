@@ -1,0 +1,487 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "primary-georgian-font";
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+ul {
+  list-style-type: none;
+}
+
+/*Global Styles @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+@font-face {
+  font-family: "header-tital-font";
+  src: url("../fonts/Fredoka-VariableFont_wdthwght.ttf");
+}
+
+@font-face {
+  font-family: "primary-georgian-font";
+  src: url("../fonts/primary-font-georgian/FiraGO-Regular.woff2")
+      format("woff2"),
+    url("../fonts/primary-font-georgian/FiraGO-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.max-width {
+  margin: auto;
+  width: min(105rem, (100% - 2rem));
+}
+.no-data,
+.loader {
+  color: rgb(212, 212, 212);
+  display: flex;
+  align-items: center;
+  justify-content: center !important;
+  padding: 2rem !important;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 30px;
+  animation: l1 1s linear infinite alternate;
+}
+
+@keyframes l1 {
+  to {
+    opacity: 0;
+  }
+}
+
+.no-data {
+  animation: unset;
+  color: rgb(229, 227, 227);
+}
+
+/* Header Styles @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+}
+header > h1 > a,
+header > nav,
+header > nav > a:last-child {
+  display: flex;
+  align-items: center;
+}
+header > h1 > a > span {
+  font-family: "header-tital-font";
+  font-weight: 600;
+  font-size: 31px;
+  color: #8338ec;
+}
+
+header > nav {
+  gap: 40px;
+}
+.person-registration-modal-buttons > button,
+header > nav > button,
+header > nav > a {
+  padding: 10px 20px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  border: #8338ec solid 1px;
+  border-radius: 5px;
+  background-color: unset;
+}
+.person-registration-modal-buttons > button:last-child,
+header > nav > a:last-child {
+  background-color: #8338ec;
+  color: white;
+  border: unset;
+}
+.person-registration-modal-buttons > button:hover,
+header > nav > button:hover {
+  cursor: grab;
+}
+.person-registration-modal-buttons > button:active,
+header > nav > button:active {
+  border-color: #b588f4;
+  cursor: grabbing;
+}
+main div {
+  font-size: 30px;
+  font-family: "primary-georgian-font";
+  font-weight: 300;
+}
+/* added tasks page @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+.added-tasks-page h2 {
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  margin-top: 40px;
+  margin-bottom: 52px;
+}
+.sorting-buttons {
+  position: relative;
+  max-width: 688px;
+  height: 44px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  border: #dee2e6 solid 1px;
+  padding: 0 18px;
+}
+.sorting-buttons > button {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  border: unset;
+  background-color: unset;
+  transition: all 0.3s;
+}
+.sorting-buttons > button i {
+  transition: all 0.3s;
+}
+
+.sorting-drop-down-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  top: 55px;
+  background-color: white;
+  z-index: 2;
+  left: 0;
+  width: 100%;
+  min-height: 300px;
+  max-width: 688px;
+  border-radius: 10px;
+  border: 0.5px #8338ec solid;
+  padding-top: 40px;
+  padding-right: 30px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  gap: 25px;
+}
+
+.sorting-drop-down-modal > button {
+  align-self: flex-end;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: white;
+  width: 155px;
+  height: 35px;
+  border-radius: 20px;
+  border: unset;
+  background-color: #8338ec;
+}
+.sorting-drop-down-modal > div {
+  display: flex;
+  flex-direction: column;
+  gap: 23.5px;
+}
+
+.sorting-drop-down-modal > div > div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #212529;
+}
+.sorting-drop-down-modal > div > div label {
+  cursor: pointer;
+}
+.sorting-drop-down-modal > div > div input {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border-width: 1.5px;
+  gap: 10px;
+  padding: 10px;
+  background-color: white;
+  cursor: pointer;
+  border: 1.5px solid #212529;
+  position: relative;
+}
+
+.sorting-drop-down-modal > div > div input[type="checkbox"]::before {
+  content: "";
+  background: url("/public/images/Vector.png") no-repeat center;
+  font-size: 16px;
+  width: 22px;
+  height: 22px;
+  color: white;
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.sorting-drop-down-modal > div > div input[type="checkbox"]:checked::before {
+  display: block;
+}
+.sorting-drop-down-modal > div > div > label {
+  display: flex;
+  align-items: center;
+}
+.sorting-drop-down-modal > div > div > label img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+/* employee registation modal @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+.employee-registration-modal {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  backdrop-filter: blur(10px);
+  background: #0d0f1026;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  min-height: fit-content;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+}
+.employee-registration-modal .modal-content {
+  max-width: 913px;
+  min-height: 766px;
+  background-color: #ffffff;
+  margin-top: 118px;
+  margin-bottom: 2rem;
+  width: 100%;
+  height: fit-content;
+  border-radius: 10px;
+  padding-top: 40px;
+  padding-right: 50px;
+  padding-bottom: 60px;
+  padding-left: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+.employee-registration-modal .modal-content > form {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+
+.employee-registration-modal .modal-content .modal-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 37px;
+}
+.employee-registration-modal .modal-content .modal-header > button {
+  align-self: flex-end;
+  background-color: unset;
+  border: unset;
+  cursor: grab;
+  transition: all;
+}
+.employee-registration-modal .modal-content .modal-header > button:active {
+  opacity: 0.7;
+  cursor: grabbing;
+}
+.employee-registration-modal .modal-content .modal-header > h2 {
+  color: #212529;
+  font-weight: 1000;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.name-surname {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.name-surname > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 384px;
+}
+.department-buttons > div:first-child > span,
+.upload-avatar > span,
+.name-surname > div > label {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #343a40;
+  margin-bottom: 3px;
+}
+
+.name-surname > div > input {
+  width: 100%;
+  border: 1px solid #ced4da;
+  height: 42px;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 6px;
+}
+.validation {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #6c757d;
+  font-weight: 350;
+  font-size: 10px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+.validation > span {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.validation > span > img {
+  width: 16px;
+  height: 16px;
+}
+.upload-avatar > input {
+  display: none;
+}
+.upload-avatar > .avatar-preview,
+.upload-avatar > label {
+  width: 100%;
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
+  height: 120px;
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  border-style: dashed;
+  margin-bottom: 6px;
+}
+.upload-avatar > label > span {
+  color: #343a40;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+.person-registration-modal-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 22px;
+}
+
+.department-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 109px;
+  position: relative;
+}
+.department-buttons > div:first-child {
+  display: flex;
+  flex-direction: column;
+  max-width: 384px;
+}
+.department-buttons > div:first-child > .departments-drop-down-select {
+  width: 100%;
+  max-width: 384px;
+  border: 1px solid #ced4da;
+  min-height: 42px;
+  max-height: 173px;
+  overflow-y: auto;
+  border-radius: 6px;
+  position: absolute;
+  top: 18px;
+  left: 0;
+  background-color: white;
+}
+
+.departments-drop-down-select ::-webkit-scrollbar-button {
+  display: none !important;
+}
+.department-buttons > div:first-child > .departments-drop-down-select > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s;
+}
+.department-buttons
+  > div:first-child
+  > .departments-drop-down-select
+  > div:first-child
+  > span,
+.departments-drop-down-select > span {
+  color: #343a40;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  padding: 14px;
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+.department-buttons
+  > div:first-child
+  > .departments-drop-down-select
+  > div:first-child
+  > span {
+  padding: 0;
+}
+.departments-drop-down-select > div {
+  padding: 14px;
+}
+.avatar-preview {
+  cursor: default !important;
+  position: relative;
+}
+.upload-avatar > .avatar-preview > div > img:first-child {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+}
+
+.upload-avatar > .avatar-preview > div > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  cursor: grab;
+  border-radius: 30px;
+  border: 0.3px solid #6c757d;
+  background-color: white;
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+}
+.upload-avatar > .avatar-preview > button:active {
+  cursor: grabbing;
+  border: unset;
+}
+.upload-avatar > .avatar-preview > div {
+  position: relative;
+  width: 88px;
+  height: 88px;
+}
