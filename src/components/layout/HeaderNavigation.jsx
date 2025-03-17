@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { DisplayTasksContext } from "../../contexts/DisplayTasksContextProvider";
 import EmployeeRegistrationModal from "../employeeRegistration/EmployeeRegistrationModal";
 const HeaderNavigation = () => {
-  const [openModal, setOpenModal] = useState(false);
+  const { displayCreateEmployeeModal, setDisplayCreateEmployeeModal } =
+    useContext(DisplayTasksContext);
   return (
     <>
       <h1>
@@ -14,7 +16,7 @@ const HeaderNavigation = () => {
       <nav>
         <button
           onClick={() => {
-            setOpenModal((prev) => !prev);
+            setDisplayCreateEmployeeModal((prev) => !prev);
           }}
         >
           თანამშრომლის შექმნა
@@ -24,7 +26,11 @@ const HeaderNavigation = () => {
           შექმენი ახალი დავალება
         </Link>
       </nav>
-      {openModal && <EmployeeRegistrationModal setOpenModal={setOpenModal} />}
+      {displayCreateEmployeeModal && (
+        <EmployeeRegistrationModal
+          setOpenModal={setDisplayCreateEmployeeModal}
+        />
+      )}
     </>
   );
 };

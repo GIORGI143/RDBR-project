@@ -52,7 +52,6 @@ const EmployeeRegistrationModal = ({ setOpenModal }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formIsValid()) {
-      console.log("false");
       return;
     }
 

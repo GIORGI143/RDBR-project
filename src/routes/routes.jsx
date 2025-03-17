@@ -18,16 +18,6 @@ const routes = createBrowserRouter([
         path: "/add-tasks",
         element: <CreateNewTask />,
       },
-      // {
-      //   path: "/registration",
-
-      //   element: <Registration />,
-      // },
-
-      // {
-      //   path: "/products/:id",
-      //   element: <ProductsDetails />,
-      // },
     ],
   },
 ]);

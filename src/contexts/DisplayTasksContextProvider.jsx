@@ -4,8 +4,14 @@ export const DisplayTasksContext = createContext(null);
 
 export const DisplayTasksContextProvider = ({ children }) => {
   const [filterTasksArray, setFilterTasksArray] = useState([]);
-
-  const value = { filterTasksArray, setFilterTasksArray };
+  const [displayCreateEmployeeModal, setDisplayCreateEmployeeModal] =
+    useState(false);
+  const value = {
+    filterTasksArray,
+    setFilterTasksArray,
+    displayCreateEmployeeModal,
+    setDisplayCreateEmployeeModal,
+  };
 
   return (
     <DisplayTasksContext.Provider value={value}>

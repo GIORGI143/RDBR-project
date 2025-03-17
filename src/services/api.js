@@ -1,5 +1,5 @@
-const API_URL = "https://momentum.redberryinternship.ge/api";
-const TOKEN = "9e704534-6a81-479a-b8d2-6a7df125a570";
+const API_URL = process.env.REACT_APP_API_URL;
+const TOKEN = process.env.REACT_APP_TOKEN;
 export const getSortingDropDownContent = async (endPoint) => {
   try {
     //endpoint can only be : statuses,priorities,departments
@@ -38,9 +38,28 @@ export const postEmployeeInfo = async (data) => {
   formData.append("surname", data.surname);
   formData.append("avatar", data.avatar);
   formData.append("department_id", data.department_id);
-  console.log("here in API");
   try {
     await fetch(`${API_URL}/employees`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+      },
+      body: formData,
+    });
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+export const postNewTaskToAPI = async (data) => {
+  const formData = new FormData();
+  formData.append("name", data.name);
+  formData.append("description", data.description);
+  formData.append("due_date", data.due_date);
+  formData.append("status_id", data.status_id);
+  formData.append("employee_id", data.employee_id);
+  formData.append("priority_id", data.priority_id);
+  try {
+    await fetch(`${API_URL}/tasks`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${TOKEN}`,
