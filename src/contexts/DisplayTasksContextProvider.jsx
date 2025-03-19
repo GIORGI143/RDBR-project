@@ -1,14 +1,21 @@
 import React, { createContext, useState } from "react";
-
 export const DisplayTasksContext = createContext(null);
 
 export const DisplayTasksContextProvider = ({ children }) => {
-  const [filterTasksArray, setFilterTasksArray] = useState([]);
+  const [filterTasksObj, setFilterTasksObj] = useState({
+    departmentID: undefined,
+    priorityID: undefined,
+    employeeID: undefined,
+  });
+  const [depColors, setDepColors] = useState({});
   const [displayCreateEmployeeModal, setDisplayCreateEmployeeModal] =
     useState(false);
+
   const value = {
-    filterTasksArray,
-    setFilterTasksArray,
+    depColors,
+    setDepColors,
+    filterTasksObj,
+    setFilterTasksObj,
     displayCreateEmployeeModal,
     setDisplayCreateEmployeeModal,
   };

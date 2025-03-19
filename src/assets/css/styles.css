@@ -485,6 +485,148 @@ main div {
   width: 88px;
   height: 88px;
 }
+/* display tasks @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+.display-tasks-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 52px;
+}
+
+.status-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.status-column > div:first-child {
+  border-radius: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: white;
+  text-align: center;
+}
+.status-column > a,
+.status-column > div {
+  max-width: 381px;
+  width: 100%;
+}
+.status-column > a {
+  min-height: 217px;
+  border-radius: 15px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 20px;
+}
+
+.single-task-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 217px;
+}
+.single-task-card > div:first-child > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.single-task-card > div:first-child > div:first-child > div {
+  gap: 10px;
+  display: flex;
+}
+
+.single-task-card > div:first-child > div:first-child > span {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #212529;
+}
+
+.single-task-card > div:first-child > div:first-child > div > span:first-child {
+  border-radius: 5px;
+  gap: 4px;
+  border-width: 0.5px;
+  padding: 4px;
+  border-style: solid;
+  display: flex;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0%;
+}
+
+.single-task-card
+  > div:first-child
+  > div:first-child
+  > div
+  > span:nth-child(2) {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  background-color: red;
+  color: white;
+  align-items: center;
+
+  display: flex;
+  border-radius: 15px;
+  padding-top: 5px;
+  padding-right: 9px;
+  padding-bottom: 5px;
+  padding-left: 9px;
+  gap: 10px;
+}
+.single-task-card > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.single-task-card > div:first-child > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.single-task-card > div:first-child > div:nth-child(2) > h3 {
+  font-weight: 650;
+  font-size: 15px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #212529;
+}
+.single-task-card > div:first-child > div:nth-child(2) > p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #343a40;
+}
+
+.card-image-comments {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #212529;
+  font-size: 14px;
+}
+.card-image-comments > div > span {
+  color: #212529;
+  font-size: 14px;
+}
+.card-image-comments > div {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.card-image-comments > img {
+  width: 31px;
+  height: 31px;
+  font-size: 14px;
+}
+
 /* create task page @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 
 .create-new-task {

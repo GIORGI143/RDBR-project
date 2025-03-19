@@ -11,6 +11,58 @@ export const getSortingDropDownContent = async (endPoint) => {
   }
 };
 
+export const getData = async (endpoint) => {
+  try {
+    const response = await fetch(`${API_URL}/${endpoint}`);
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    throw error;
+  }
+};
+
+export const getTasks = async () => {
+  try {
+    const response = await fetch(`${API_URL}/tasks`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
+
+export const getTaskComments = async (ID) => {
+  try {
+    const response = await fetch(`${API_URL}/tasks/${ID}/comments`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
+
 export const getEmployeesList = async () => {
   try {
     const response = await fetch(`${API_URL}/employees`, {

@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import React from "react";
 import AddedTasksPage from "../pages/AddedTasksPage";
 import CreateNewTask from "../pages/CreateNewTask";
-
+import TaskDetails from "../pages/TaskDetails";
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -17,6 +17,10 @@ const routes = createBrowserRouter([
       {
         path: "/add-tasks",
         element: <CreateNewTask />,
+      },
+      {
+        path: "/task-details/:id",
+        element: <TaskDetails />,
       },
     ],
   },
