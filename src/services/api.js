@@ -41,10 +41,45 @@ export const getTasks = async () => {
     console.error("Error fetching data:", error);
   }
 };
+export const updateTaskStatus = async (taskId, statusId) => {
+  try {
+    await fetch(`${API_URL}/tasks/${taskId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${TOKEN}`,
+      },
+      body: JSON.stringify({ status_id: statusId }),
+    });
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
 
 export const getTaskComments = async (ID) => {
   try {
     const response = await fetch(`${API_URL}/tasks/${ID}/comments`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
+
+export const getSingleTaskData = async (ID) => {
+  try {
+    const response = await fetch(`${API_URL}/tasks/${ID}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${TOKEN}`,
@@ -120,5 +155,46 @@ export const postNewTaskToAPI = async (data) => {
     });
   } catch (error) {
     console.error("Error:", error);
+  }
+};
+
+export const postCommant = async (data, taskID) => {
+  const formData = new FormData();
+  formData.append("text", data.text);
+  if (data.parent_id !== null) formData.append("parent_id", data.parent_id);
+
+  try {
+    const response = await fetch(`${API_URL}/tasks/${taskID}/comments`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+      },
+      body: formData,
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
+export const getComments = async (taskID) => {
+  try {
+    const response = await fetch(`${API_URL}/tasks/${taskID}/comments`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
   }
 };

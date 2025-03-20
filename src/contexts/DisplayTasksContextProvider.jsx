@@ -7,6 +7,8 @@ export const DisplayTasksContextProvider = ({ children }) => {
     priorityID: undefined,
     employeeID: undefined,
   });
+  const [comments, setComments] = useState([]);
+
   const [depColors, setDepColors] = useState({});
   const [displayCreateEmployeeModal, setDisplayCreateEmployeeModal] =
     useState(false);
@@ -18,6 +20,8 @@ export const DisplayTasksContextProvider = ({ children }) => {
     setFilterTasksObj,
     displayCreateEmployeeModal,
     setDisplayCreateEmployeeModal,
+    comments,
+    setComments,
   };
 
   return (

@@ -80,6 +80,7 @@ header > h1 > a > span {
 header > nav {
   gap: 40px;
 }
+.task-comments form > button,
 .person-registration-modal-buttons > button,
 header > nav > button,
 header > nav > a {
@@ -92,6 +93,7 @@ header > nav > a {
   border-radius: 5px;
   background-color: unset;
 }
+.task-comments form > button,
 .person-registration-modal-buttons > button:last-child,
 header > nav > a:last-child {
   background-color: #8338ec;
@@ -544,7 +546,7 @@ main div {
   letter-spacing: 0%;
   color: #212529;
 }
-
+.priority-dep-container > span:first-child,
 .single-task-card > div:first-child > div:first-child > div > span:first-child {
   border-radius: 5px;
   gap: 4px;
@@ -557,7 +559,7 @@ main div {
   line-height: 150%;
   letter-spacing: 0%;
 }
-
+.priority-dep-container > span:nth-child(2),
 .single-task-card
   > div:first-child
   > div:first-child
@@ -664,6 +666,7 @@ main div {
   display: flex;
   flex-direction: column;
 }
+.change-status,
 .date > input,
 .department-and-employee-selectors > div > div,
 .priority-status-selectors > div > div,
@@ -702,6 +705,7 @@ main div {
   padding: unset;
   height: auto;
 }
+.change-status,
 .department-and-employee-selectors > div > div > div,
 .priority-status-selectors > div > div > div {
   display: flex;
@@ -710,6 +714,7 @@ main div {
   height: 45px;
   padding: 14px;
 }
+
 .department-and-employee-selectors > div > div > div:first-child > i,
 .priority-status-selectors > div > div > div:first-child > i {
   color: #343a40;
@@ -768,6 +773,7 @@ main div {
   line-height: 100%;
   letter-spacing: 0%;
 }
+.change-status > div:first-child,
 .department-and-employee-selectors > div > div > div:first-child {
   justify-content: space-between;
 }
@@ -801,4 +807,242 @@ main div {
 }
 .department-and-employee-selectors > div > div > .employee-selecton {
   justify-content: flex-end;
+}
+/*task details page @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+.task-detail-page-left-side {
+  max-width: 715px;
+}
+
+.priority-dep-container {
+  display: flex;
+  gap: 18px;
+}
+.priority-dep-container > span {
+  font-size: 16px;
+}
+.task-detail-page-left-side h2 {
+  margin-top: 12px;
+  font-weight: 700;
+  color: #212529;
+  font-size: 34px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+.task-small-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+.task-small-details > span {
+  min-height: 70px;
+  color: #474747;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0%;
+}
+
+.task-detail-page-left-side p {
+  margin-top: 26px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  margin-bottom: 62px;
+}
+.task-detail-page-left-side h3 {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #2a2a2a;
+  margin-bottom: 18px;
+}
+.employee-task-details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 41px;
+}
+
+.employee-task-details img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.employee-task-details > div {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  gap: 1.5px;
+}
+.employee-task-details > div > span:first-child {
+  color: #474747;
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+.employee-task-details > div > span:nth-child(2) {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #0d0f10;
+}
+.task-small-details > span:last-child {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #0d0f10;
+}
+.change-status > div {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #0d0f10;
+  padding: 14px;
+}
+.change-status {
+  background-color: white;
+  position: absolute;
+  padding: unset;
+  height: auto;
+  flex-direction: column;
+}
+.statuses-modal-container {
+  position: relative;
+  height: 45px;
+}
+
+/*task comments @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+.task-comments {
+  border: 0.3px solid #ddd2ff;
+  background-color: #f8f3fea6;
+  max-width: 741px;
+  width: 100%;
+  min-height: 975px;
+  border-radius: 10px;
+  padding: 40px 45px;
+}
+.task-comments > p {
+  color: black;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 66px;
+}
+.task-comments > p > span {
+  background-color: #8338ec;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  width: 30px;
+  height: 22px;
+  border-radius: 30px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.task-details-container {
+  display: flex;
+  justify-content: space-between;
+}
+.task-comments form {
+  width: 100%;
+  height: 135px;
+  position: relative;
+}
+.task-comments form > textarea {
+  width: 100%;
+  height: 135px;
+  resize: unset;
+  background-color: white;
+  border: 0.3px solid #adb5bd;
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.comments {
+  display: flex;
+  flex-direction: column;
+  gap: 57px;
+  margin-top: 40px;
+}
+.task-comments form > button {
+  border-radius: 20px;
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+}
+.task-comments form > button:hover {
+  cursor: pointer;
+}
+.task-comments form > span {
+  color: red;
+  font-size: 11px;
+}
+
+.comment-answer,
+.single-comment {
+  display: flex;
+  gap: 12px;
+}
+.single-comment img {
+  width: 38px;
+  height: 38px;
+  border-radius: 40px;
+}
+.comment-answer > div,
+.single-comment > div {
+  display: flex;
+  flex-direction: column;
+}
+.comment-answer > div > span,
+.single-comment > div > span {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #212529;
+}
+.comment-answer > div > p,
+.single-comment > div > p {
+  color: #343a40;
+  font-weight: 350;
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+.single-comment > div > button {
+  color: #8338ec;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  background-color: unset;
+  border: unset;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  margin-top: 16px;
+}
+.comment-answer {
+  margin-top: 20px;
 }
