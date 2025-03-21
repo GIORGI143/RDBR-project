@@ -11,7 +11,7 @@ const DisplayTasks = () => {
   const [statuses, setStatuses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [tasks, setTasks] = useState([]);
-  const { filterTasksObj, depColors, setDepColors } =
+  const { filterTasksObj, depColors, setDepColors, setFilterTasksObj } =
     useContext(DisplayTasksContext);
   /*{
     departmentID: undefined,
@@ -33,10 +33,9 @@ const DisplayTasks = () => {
         });
       }
       setUnfilteredArr(taskdata);
-      //   setTasks(taskData);
       setStatuses(data);
       setLoading(false);
-
+      setTasks(taskdata);
       setDepColors((prev) => {
         return prev;
       });
@@ -45,41 +44,6 @@ const DisplayTasks = () => {
       throw err;
     }
   };
-  // useEffect(() => {
-  //   console.log("filterTasksObj", filterTasksObj);
-  //   const temp = unfilteredArr.filter((singleTask) => {
-  //     let priorityIsValid = false;
-  //     let departmentIsValid = false;
-  //     let employeeIsValid = false;
-  //     if (filterTasksObj.priorityID === undefined) {
-  //       priorityIsValid = true;
-  //     } else {
-  //       priorityIsValid = filterTasksObj.priorityID.includes(
-  //         singleTask.priority.id
-  //       );
-  //     }
-  //     if (filterTasksObj.departmentID === undefined) {
-  //       departmentIsValid = true;
-  //     } else {
-  //       departmentIsValid = filterTasksObj.departmentID.includes(
-  //         singleTask.department.id
-  //       );
-  //     }
-  //     if (filterTasksObj.employeeID === undefined) {
-  //       employeeIsValid = true;
-  //     } else if (filterTasksObj.employeeID === singleTask.employee.id) {
-  //       employeeIsValid = true;
-  //     }
-
-  //     if (departmentIsValid && priorityIsValid && employeeIsValid) {
-  //       return true;
-  //     } else {
-  //       return false;
-  //     }
-  //   });
-  //   console.log("unfilteredArr", unfilteredArr);
-  //   console.log("temp", temp);
-  // }, [filterTasksObj]);
 
   useEffect(() => {
     console.log("filterTasksObj", filterTasksObj);
@@ -89,7 +53,6 @@ const DisplayTasks = () => {
       let departmentIsValid = false;
       let employeeIsValid = false;
 
-      // Check priority validity
       if (
         !filterTasksObj.priorityID ||
         !Array.isArray(filterTasksObj.priorityID)
@@ -101,7 +64,6 @@ const DisplayTasks = () => {
         );
       }
 
-      // Check department validity
       if (
         !filterTasksObj.departmentID ||
         !Array.isArray(filterTasksObj.departmentID)
@@ -113,26 +75,28 @@ const DisplayTasks = () => {
         );
       }
 
-      // Check employee validity
       if (filterTasksObj.employeeID === undefined) {
         employeeIsValid = true;
       } else {
         employeeIsValid = filterTasksObj.employeeID === singleTask.employee.id;
       }
 
-      // Return true if all conditions are valid
       return departmentIsValid && priorityIsValid && employeeIsValid;
     });
 
     console.log("unfilteredArr", unfilteredArr);
     console.log("temp", temp);
 
-    // Optionally store temp in state if needed
     setTasks(temp);
   }, [filterTasksObj]);
 
   useEffect(() => {
     fatchStatuses();
+    setFilterTasksObj({
+      departmentID: undefined,
+      priorityID: undefined,
+      employeeID: undefined,
+    });
   }, []);
 
   if (loading) {

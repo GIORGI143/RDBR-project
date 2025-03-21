@@ -49,6 +49,23 @@ const SortingDropDownModal = ({
   };
 
   useEffect(() => {
+    if (filterTasksObj.departmentID !== undefined) {
+      filterTasksObj.departmentID.forEach((ID) => {
+        checkedItems.push(["departments", ID]);
+      });
+    }
+
+    if (filterTasksObj.priorityID !== undefined) {
+      filterTasksObj.priorityID.forEach((ID) => {
+        checkedItems.push(["priorities", ID]);
+      });
+    }
+    if (filterTasksObj.employeeID !== undefined) {
+      checkedItems.push(["employees", filterTasksObj.employeeID]);
+    }
+  }, []);
+
+  useEffect(() => {
     setTimeout(() => {
       window.addEventListener("click", turnOffModal);
     }, 50);
@@ -160,7 +177,7 @@ const SortingDropDownModal = ({
       <button
         onClick={() => {
           handleSortingButton();
-          console.log(checkedItems);
+          setActiveIndexOfSortingButtons(-1);
         }}
       >
         არჩევა
