@@ -1046,3 +1046,32 @@ main div {
 .comment-answer {
   margin-top: 20px;
 }
+.remove-buttons-ul {
+  display: flex;
+  gap: 8px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.remove-buttons-ul li {
+  padding: 6px 10px;
+  border: 1px solid #ced4da;
+  border-radius: 43px;
+  display: flex;
+  align-items: center;
+  gap: 1.5px;
+}
+.remove-buttons-ul li span {
+  color: #021526cc;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+.remove-buttons-ul li button {
+  background-color: unset;
+  border: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

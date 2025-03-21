@@ -108,12 +108,6 @@ const SortingDropDownModal = ({
 
   //apply selected filters
 
-  // const [filterTasksObj, setFilterTasksObj] = useState({
-  //   departmentID: undefined,
-  //   priorityID: undefined,
-  //   employeeID: undefined,
-  // });
-
   const handleSortingButton = () => {
     checkedItems.forEach((elm) => {
       if (elm[0] === "departments") {
