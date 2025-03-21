@@ -82,7 +82,7 @@ const SingleTaskCard = ({ task, borderColor, deparetmentColor }) => {
                 borderColor: colorForPriority[task.priority.id - 1],
               }}
             >
-              <img src={task.priority.icon} alt={task.priority.name} />
+              <img src={task.priority.icon} alt="" />
               {task.priority.name}
             </span>
             <span

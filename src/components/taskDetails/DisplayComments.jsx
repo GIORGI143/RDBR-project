@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { getComments } from "../../services/api";
 import SingleComment from "./SingleComment";
 import { DisplayTasksContext } from "../../contexts/DisplayTasksContextProvider";

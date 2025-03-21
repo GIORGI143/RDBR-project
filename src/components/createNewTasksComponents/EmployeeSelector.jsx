@@ -33,19 +33,20 @@ const EmployeeSelector = () => {
           } else {
             return false;
           }
-          setIsLoading(false);
         });
         setFilteredEmployees(tempArr);
       }
+      setIsLoading(false);
     } catch (error) {
       console.error("Error fetching products:", error);
+      setIsLoading(false);
       throw error;
     }
   };
   useEffect(() => {
     handleFilterEmployees();
     setSelectedEmployee(null);
-  }, [choosedDepartmentId]);
+  }, [choosedDepartmentId, handleFilterEmployees]);
 
   useEffect(() => {
     fetchData();
