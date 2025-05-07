@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { getSortingDropDownContent } from "../../services/api";
 import { CreateNewTaskContext } from "../../contexts/CreateNewTaskContext";
 const StatusSelector = () => {
@@ -6,6 +6,7 @@ const StatusSelector = () => {
   const [priority, setPriority] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedPriority, setSelectedPriority] = useState(null);
+  const modalRef = useRef(null);
   const iconsArr = [
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -57,10 +58,22 @@ const StatusSelector = () => {
   };
   useEffect(() => {
     fetchData();
+
+    const handleClickOutside = (MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(MouseEvent.target)) {
+        setModalIsOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
   }, []);
   if (isLoading) return <div className="loader">Loading</div>;
   return (
-    <div>
+    <div ref={modalRef}>
       <div
         onClick={() => {
           setModalIsOpen(!modalIsOpen);
@@ -73,7 +86,7 @@ const StatusSelector = () => {
           </span>
         )}
         <i
-          className="fa-solid fa-angle-up"
+          className="fa-solid fa-angle-up arrow-icon"
           style={{
             transform: `rotate(${modalIsOpen ? "0deg" : "180deg"})`,
           }}

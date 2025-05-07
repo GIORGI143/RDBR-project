@@ -6,6 +6,7 @@ const SingleTaskCard = ({ task, borderColor, deparetmentColor }) => {
   const [dueDate, setDueData] = useState();
   const [displayDepartament, setDisplayDepartament] = useState();
   const [commentAmount, setCommentAmount] = useState();
+  const [shortenDescription, setShortenDescription] = useState("");
   const colorForPriority = ["#08A508", "#FFBE0B", "#FA4D4D"];
   const infoForTaskPage = {
     priorityColor: colorForPriority[task.priority.id - 1],
@@ -57,6 +58,12 @@ const SingleTaskCard = ({ task, borderColor, deparetmentColor }) => {
     date[1] = months[Number(date[1]) - 1];
     const convertedDate = `${date[2]} ${date[1]}, ${date[0]}`;
     setDueData(convertedDate);
+
+    const shortened =
+      task.description.length > 100
+        ? task.description.slice(0, 100) + "..."
+        : task.description;
+    setShortenDescription(shortened);
   };
   useEffect(() => {
     convertDepartmentName();
@@ -97,7 +104,7 @@ const SingleTaskCard = ({ task, borderColor, deparetmentColor }) => {
         </div>
         <div>
           <h3>{task.name}</h3>
-          <p>{task.description}</p>
+          <p>{shortenDescription}</p>
         </div>
       </div>
       <div className="card-image-comments">

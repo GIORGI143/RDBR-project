@@ -57,6 +57,12 @@ ul {
   color: rgb(229, 227, 227);
 }
 
+#root {
+  position: relative;
+  height: 100%;
+  overflow-x: hidden;
+}
+
 /* Header Styles @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 header {
   display: flex;
@@ -92,6 +98,7 @@ header > nav > a {
   border: #8338ec solid 1px;
   border-radius: 5px;
   background-color: unset;
+  cursor: grab;
 }
 .task-comments form > button,
 .person-registration-modal-buttons > button:last-child,
@@ -99,6 +106,24 @@ header > nav > a:last-child {
   background-color: #8338ec;
   color: white;
   border: unset;
+}
+.task-comments form > button {
+  cursor: grab;
+}
+.task-comments form > button:hover {
+  background-color: purple;
+}
+.task-comments form > button:active {
+  cursor: grabbing;
+  opacity: 0.7;
+}
+.person-registration-modal-buttons > button:last-child,
+header > nav > a:last-child:hover {
+  opacity: 0.7;
+}
+.person-registration-modal-buttons > button:last-child,
+header > nav > a:last-child:active {
+  cursor: grabbing;
 }
 .person-registration-modal-buttons > button:hover,
 header > nav > button:hover {
@@ -146,6 +171,7 @@ main div {
   text-align: center;
   border: unset;
   background-color: unset;
+  cursor: pointer;
   transition: all 0.3s;
 }
 .sorting-buttons > button i {
@@ -259,7 +285,7 @@ main div {
   bottom: 0;
   right: 0;
   min-height: fit-content;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   z-index: 200;
 }
@@ -521,6 +547,10 @@ main div {
   border-width: 1px;
   border-style: solid;
   padding: 20px;
+  cursor: grab;
+}
+.status-column > a:active {
+  cursor: grabbing;
 }
 
 .single-task-card {
@@ -627,6 +657,7 @@ main div {
   width: 31px;
   height: 31px;
   font-size: 14px;
+  border-radius: 50%;
 }
 
 /* create task page @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
@@ -655,7 +686,17 @@ main div {
   color: #343a40;
   display: block;
 }
-
+.selector {
+  position: relative;
+}
+.selector__dropdown {
+  position: absolute;
+  z-index: 4;
+  background-color: white;
+}
+.employee-selector {
+  z-index: 3;
+}
 .create-new-task > div > div:first-child {
   display: flex;
   flex-direction: column;
@@ -680,6 +721,12 @@ main div {
   padding: 14px;
   border: 1px solid #dee2e6;
   margin-bottom: 4px;
+}
+.priority-status-selectors > div {
+  position: relative;
+}
+.priority-status-selectors > div > div {
+  position: absolute;
 }
 
 .create-new-task > div > div:first-child > div > textarea {
@@ -773,8 +820,7 @@ main div {
   line-height: 100%;
   letter-spacing: 0%;
 }
-.change-status > div:first-child,
-.department-and-employee-selectors > div > div > div:first-child {
+.change-status > div:first-child {
   justify-content: space-between;
 }
 .department-and-employee-selectors > div > .employee-tital {
@@ -805,8 +851,9 @@ main div {
   border: unset;
   align-self: flex-end;
 }
-.department-and-employee-selectors > div > div > .employee-selecton {
-  justify-content: flex-end;
+.arrow-icon {
+  position: absolute;
+  right: 15px;
 }
 /*task details page @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 .task-detail-page-left-side {
@@ -970,6 +1017,7 @@ main div {
 }
 .task-comments form > textarea {
   width: 100%;
+
   height: 135px;
   resize: unset;
   background-color: white;
@@ -989,9 +1037,7 @@ main div {
   bottom: 15px;
   right: 20px;
 }
-.task-comments form > button:hover {
-  cursor: pointer;
-}
+
 .task-comments form > span {
   color: red;
   font-size: 11px;
@@ -1012,6 +1058,10 @@ main div {
   display: flex;
   flex-direction: column;
 }
+.single-comment > div {
+  width: 100%;
+}
+
 .comment-answer > div > span,
 .single-comment > div > span {
   font-weight: 600;

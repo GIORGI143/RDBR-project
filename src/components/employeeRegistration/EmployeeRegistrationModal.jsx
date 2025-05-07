@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import DepartmentModalForPersonReg from "./DepartmentModalForPersonReg";
 import ImageUpload from "./ImageUpload";
 import ValidationMessages from "./ValidationMessages";
@@ -7,6 +7,7 @@ import { postEmployeeInfo } from "../../services/api";
 const EmployeeRegistrationModal = ({ setOpenModal }) => {
   //departments varables
   const modalRef = useRef(null);
+  const closeModalRef = useRef(null);
   const [departmentModalIsOpen, setDepartmentModalIsOpen] = useState(false);
   const [departmentIdAndValue, setDepartmentIdAndValue] = useState(null);
 
@@ -69,6 +70,24 @@ const EmployeeRegistrationModal = ({ setOpenModal }) => {
     }
   };
 
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        closeModalRef.current &&
+        !closeModalRef.current.contains(event.target)
+      ) {
+        setOpenModal(false);
+      }
+    }
+    setTimeout(() => {
+      document.addEventListener("click", handleClickOutside);
+    }, 100);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   const handleValidation = (e, validation, setValidation, setValue) => {
     setValue(e.target.value);
     const nameLength = e.target.value.length;
@@ -110,7 +129,7 @@ const EmployeeRegistrationModal = ({ setOpenModal }) => {
 
   return (
     <div className="employee-registration-modal">
-      <div className="modal-content">
+      <div className="modal-content" ref={closeModalRef}>
         <div className="modal-header">
           <button
             onClick={() => {

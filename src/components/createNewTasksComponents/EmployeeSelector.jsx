@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { getEmployeesList } from "../../services/api";
 import { DisplayTasksContext } from "../../contexts/DisplayTasksContextProvider";
 import { CreateNewTaskContext } from "../../contexts/CreateNewTaskContext";
@@ -12,6 +12,7 @@ const EmployeeSelector = () => {
   const { choosedDepartmentId, setChoosedEmployeeId } =
     useContext(CreateNewTaskContext);
   const [filteredEmployees, setFilteredEmployees] = useState([]);
+  const modalRef = useRef(null);
   const fetchData = async () => {
     try {
       const response = await getEmployeesList();
@@ -35,25 +36,36 @@ const EmployeeSelector = () => {
           }
         });
         setFilteredEmployees(tempArr);
+        setIsLoading(false);
       }
-      setIsLoading(false);
     } catch (error) {
       console.error("Error fetching products:", error);
-      setIsLoading(false);
       throw error;
     }
   };
   useEffect(() => {
     handleFilterEmployees();
     setSelectedEmployee(null);
-  }, [choosedDepartmentId, handleFilterEmployees]);
+  }, [choosedDepartmentId]);
 
   useEffect(() => {
     fetchData();
+
+    const handleClickOutside = (MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(MouseEvent.target)) {
+        setModalIsOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
   }, []);
 
   return (
-    <div>
+    <div className="selector">
       <span
         className="employee-tital"
         style={{
@@ -62,7 +74,7 @@ const EmployeeSelector = () => {
       >
         პასუხისმგებელი თანამშრომელი*
       </span>
-      <div>
+      <div className="selector__dropdown employee-selector" ref={modalRef}>
         <div
           className="employee-selecton"
           style={{
@@ -81,7 +93,7 @@ const EmployeeSelector = () => {
             </div>
           )}
           <i
-            className="fa-solid fa-angle-up"
+            className="fa-solid fa-angle-up arrow-icon"
             style={{
               transform: `rotate(${modalIsOpen ? "0deg" : "180deg"})`,
             }}

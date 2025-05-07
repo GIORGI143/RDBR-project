@@ -46,8 +46,6 @@ const DisplayTasks = () => {
   };
 
   useEffect(() => {
-    console.log("filterTasksObj", filterTasksObj);
-
     const temp = unfilteredArr.filter((singleTask) => {
       let priorityIsValid = false;
       let departmentIsValid = false;
@@ -83,9 +81,6 @@ const DisplayTasks = () => {
 
       return departmentIsValid && priorityIsValid && employeeIsValid;
     });
-
-    console.log("unfilteredArr", unfilteredArr);
-    console.log("temp", temp);
 
     setTasks(temp);
   }, [filterTasksObj]);
